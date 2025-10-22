@@ -1,0 +1,100 @@
+{
+  "name": "MetroTow - 24/7 Emergency Towing Service",
+  "short_name": "MetroTow",
+  "description": "Fast, reliable 24/7 emergency towing and roadside assistance in North Omaha, Nebraska",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["automotive", "emergency", "business"],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Call Emergency Towing",
+      "short_name": "Call Now",
+      "description": "Call MetroTow for immediate emergency assistance",
+      "url": "tel:+14022140800",
+      "icons": [
+        {
+          "src": "/phone-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Start Live Chat",
+      "short_name": "Chat",
+      "description": "Start a live chat for quick assistance",
+      "url": "/?chat=open",
+      "icons": [
+        {
+          "src": "/chat-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "View Services",
+      "short_name": "Services",
+      "description": "Browse our towing and roadside services",
+      "url": "/services",
+      "icons": [
+        {
+          "src": "/services-icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "dir": "ltr",
+  "iarc_rating_id": "",
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "MetroTow desktop homepage showing emergency towing services"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "MetroTow mobile app showing quick call and chat options"
+    }
+  ]
+}

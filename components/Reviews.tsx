@@ -1,0 +1,159 @@
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Star } from "lucide-react";
+
+const reviews = [
+  {
+    name: "Maria Rodriguez",
+    initial: "M",
+    location: "North Omaha",
+    service: "Emergency Towing",
+    rating: 5,
+    text: "Me quedé varada a las 2 AM y llegaron en 35 minutos. El conductor habló español perfectamente y fue muy profesional. Precio justo, sin sorpresas.",
+    highlight: "Best bilingual service in Omaha!",
+    date: "2 weeks ago",
+  },
+  {
+    name: "James Wilson",
+    initial: "J",
+    location: "Florence",
+    service: "Battery Jump",
+    rating: 5,
+    text: "Dead battery in a parking lot. Called MetroTow and they arrived in 28 minutes! Got me running fast and the price was exactly what they quoted on the phone.",
+    highlight: "Fastest response I've ever seen",
+    date: "1 month ago",
+  },
+  {
+    name: "Carlos Hernandez",
+    initial: "C",
+    location: "North Omaha",
+    service: "Lockout Service",
+    rating: 5,
+    text: "Locked my keys in the car with the engine running. They talked me through it in Spanish, arrived quickly, and got me in without any damage. Very impressed!",
+    highlight: "Professional and caring",
+    date: "3 weeks ago",
+  },
+  {
+    name: "Sarah Thompson",
+    initial: "S",
+    location: "Benson",
+    service: "Tire Change",
+    rating: 5,
+    text: "Flat tire in the rain. MetroTow came out fast, changed it quickly, and even checked my other tires. Fair pricing and super friendly. Will definitely use again!",
+    highlight: "Went above and beyond",
+    date: "1 week ago",
+  },
+  {
+    name: "Miguel Santos",
+    initial: "M",
+    location: "North Omaha",
+    service: "Winch-Out",
+    rating: 5,
+    text: "Stuck in a ditch after ice storm. They pulled me out carefully and checked for damage. Bilingual service made everything easier for my family. Gracias!",
+    highlight: "Saved the day!",
+    date: "2 months ago",
+  },
+  {
+    name: "Jennifer Lee",
+    initial: "J",
+    location: "Downtown Omaha",
+    service: "Emergency Towing",
+    rating: 5,
+    text: "Car broke down on way to work. MetroTow arrived in 40 minutes, towed to my mechanic, and the price was lower than other quotes. Highly recommend!",
+    highlight: "Transparent pricing, no surprises",
+    date: "3 weeks ago",
+  },
+];
+
+export const Reviews = () => {
+  return (
+    <section id="reviews" className="py-24 bg-gradient-to-br from-background via-muted/20 to-background">
+      <div className="container">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <Badge className="bg-success text-success-foreground font-bold text-base px-4 py-2 mb-4">
+            ⭐ 5.0 Google Rating
+          </Badge>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+            Real Stories from
+            <br />
+            <span className="bg-gradient-to-r from-secondary to-warning bg-clip-text text-transparent">
+              Real Customers
+            </span>
+          </h2>
+          <p className="text-xl text-muted-foreground font-medium">
+            See why North Omaha trusts MetroTow for emergency towing and roadside assistance.
+          </p>
+        </div>
+
+        {/* Reviews Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {reviews.map((review, index) => (
+            <Card 
+              key={index}
+              className="group p-6 border-2 hover:border-secondary transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card/80 backdrop-blur-sm"
+            >
+              <div className="space-y-4">
+                {/* Header */}
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-black text-lg">
+                      {review.initial}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground">{review.name}</h4>
+                      <p className="text-sm text-muted-foreground">{review.location}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-warning text-warning" />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Service Badge */}
+                <Badge variant="secondary" className="bg-secondary/10 text-foreground font-semibold">
+                  {review.service}
+                </Badge>
+
+                {/* Review Text */}
+                <p className="text-muted-foreground leading-relaxed">
+                  "{review.text}"
+                </p>
+
+                {/* Highlight */}
+                <div className="pt-4 border-t-2 border-secondary/20">
+                  <p className="text-secondary font-bold italic">
+                    {review.highlight}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1">{review.date}</p>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Trust Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center p-6 bg-card/50 rounded-2xl border-2 border-border">
+            <div className="text-5xl font-black text-secondary mb-2">500+</div>
+            <div className="font-semibold text-muted-foreground">5-Star Reviews</div>
+          </div>
+          <div className="text-center p-6 bg-card/50 rounded-2xl border-2 border-border">
+            <div className="text-5xl font-black text-success mb-2">98%</div>
+            <div className="font-semibold text-muted-foreground">Satisfaction Rate</div>
+          </div>
+          <div className="text-center p-6 bg-card/50 rounded-2xl border-2 border-border">
+            <div className="text-5xl font-black text-primary mb-2">5K+</div>
+            <div className="font-semibold text-muted-foreground">Customers Served</div>
+          </div>
+          <div className="text-center p-6 bg-card/50 rounded-2xl border-2 border-border">
+            <div className="text-5xl font-black text-warning mb-2">#1</div>
+            <div className="font-semibold text-muted-foreground">in North Omaha</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
