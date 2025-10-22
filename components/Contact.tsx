@@ -5,11 +5,144 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, MessageCircle, Mail, MapPin, Clock, AlertCircle } from "lucide-react";
 import { useChat } from "./chatProvider";
+import { SuccessModal } from "./SuccessModal";
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  subject?: string;
+  message?: string;
+}
 
 export const Contact = () => {
   const { openChat } = useChat();
+  
+  // Form state
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [submitError, setSubmitError] = useState<string>('');
+
+  // Form validation
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.length > 100) {
+      newErrors.name = 'Name must be less than 100 characters';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = 'Please enter a valid email address';
+      }
+    }
+    
+    // Phone validation (optional field)
+    if (formData.phone.trim()) {
+      const phoneRegex = /^[\+]?[1-9][\d\s\-\(\)]{7,15}$/;
+      if (!phoneRegex.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
+        newErrors.phone = 'Please enter a valid phone number';
+      }
+    }
+    
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required';
+    } else if (formData.subject.length > 200) {
+      newErrors.subject = 'Subject must be less than 200 characters';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.length > 5000) {
+      newErrors.message = 'Message must be less than 5000 characters';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error for this field when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: undefined
+      }));
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitError('');
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        // Success - show modal and reset form
+        setShowSuccessModal(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitError(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="contact" className="py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
       <div className="container">
@@ -119,53 +252,147 @@ export const Contact = () => {
                 </p>
               </div>
 
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              {/* Error Message */}
+              {submitError && (
+                <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg flex items-center gap-2 text-destructive">
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                  <span className="font-medium">{submitError}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-foreground">Name / Nombre</label>
-                    <Input placeholder="John Doe" className="border-2 focus:border-secondary" />
+                    <label className="text-sm font-bold text-foreground">Name / Nombre *</label>
+                    <Input 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="John Doe" 
+                      className={`border-2 focus:border-secondary ${
+                        errors.name ? 'border-destructive focus:border-destructive' : ''
+                      }`}
+                      maxLength={100}
+                      required
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-destructive font-medium">{errors.name}</p>
+                    )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-foreground">Phone / Teléfono</label>
-                    <Input placeholder="(402) 214-0800" className="border-2 focus:border-secondary" />
+                    <label className="text-sm font-bold text-foreground">Email / Correo *</label>
+                    <Input 
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="john@example.com" 
+                      className={`border-2 focus:border-secondary ${
+                        errors.email ? 'border-destructive focus:border-destructive' : ''
+                      }`}
+                      required
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-destructive font-medium">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Email / Correo</label>
-                  <Input type="email" placeholder="john@example.com" className="border-2 focus:border-secondary" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Service Needed / Servicio Necesario</label>
-                  <Input placeholder="e.g., Emergency Towing, Battery Jump" className="border-2 focus:border-secondary" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-foreground">Message / Mensaje</label>
-                  <Textarea 
-                    placeholder="Tell us about your situation..."
-                    rows={5}
-                    className="border-2 focus:border-secondary resize-none"
+                  <label className="text-sm font-bold text-foreground">Phone / Teléfono</label>
+                  <Input 
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="(402) 214-0800" 
+                    className={`border-2 focus:border-secondary ${
+                      errors.phone ? 'border-destructive focus:border-destructive' : ''
+                    }`}
+                    maxLength={20}
                   />
+                  {errors.phone && (
+                    <p className="text-sm text-destructive font-medium">{errors.phone}</p>
+                  )}
+                  <p className="text-xs text-muted-foreground">Optional - helps us respond faster</p>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Subject / Asunto *</label>
+                  <Input 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="e.g., Emergency Towing, Battery Jump, General Inquiry" 
+                    className={`border-2 focus:border-secondary ${
+                      errors.subject ? 'border-destructive focus:border-destructive' : ''
+                    }`}
+                    maxLength={200}
+                    required
+                  />
+                  {errors.subject && (
+                    <p className="text-sm text-destructive font-medium">{errors.subject}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-foreground">Message / Mensaje *</label>
+                  <Textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about your situation, location, and what help you need..."
+                    rows={5}
+                    className={`border-2 focus:border-secondary resize-none ${
+                      errors.message ? 'border-destructive focus:border-destructive' : ''
+                    }`}
+                    maxLength={5000}
+                    required
+                  />
+                  <div className="flex justify-between items-center">
+                    {errors.message ? (
+                      <p className="text-sm text-destructive font-medium">{errors.message}</p>
+                    ) : (
+                      <div></div>
+                    )}
+                    <p className="text-xs text-muted-foreground">
+                      {formData.message.length}/5000 characters
+                    </p>
+                  </div>
                 </div>
 
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full text-lg font-bold bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg"
+                  disabled={isSubmitting}
+                  className="w-full text-lg font-bold bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
 
                 <p className="text-xs text-center text-muted-foreground">
-                  For emergencies, please call (402) 214-0800 immediately
+                  For emergencies, please call <strong>(402) 214-0800</strong> immediately
                 </p>
               </form>
             </div>
           </Card>
         </div>
       </div>
+      
+      {/* Success Modal */}
+      <SuccessModal 
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title="Message Sent Successfully!"
+        message="Thank you for contacting Metro Towing! We'll get back to you within 2 hours."
+      />
     </section>
   );
 };
