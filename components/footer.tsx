@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-3xl font-black">MetroTow</h3>
+           <img src="/logo.svg" alt="Logo" className="w-24 h-24" />
             <p className="text-primary-foreground/80 font-medium leading-relaxed">
               North Omaha's trusted bilingual towing and roadside assistance service. Fast, professional, and transparent.
             </p>
@@ -76,12 +76,12 @@ export const Footer = () => {
                 </div>
               </a>
 
-              <a href="mailto:help@metrotow.com" className="flex items-start gap-3 group">
+              <a href="mailto:service@metrotowingautocare.com" className="flex items-start gap-3 group">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="text-sm font-bold text-primary-foreground/60">Email</div>
                   <div className="font-bold text-primary-foreground/90 group-hover:text-secondary transition-colors">
-                    help@metrotow.com
+                    service@metrotowingautocare.com
                   </div>
                 </div>
               </a>

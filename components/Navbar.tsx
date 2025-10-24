@@ -25,22 +25,19 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-lg shadow-md border-b-2 border-border"
-            : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-background/95 backdrop-blur-lg shadow-md border-b-2 border-border"
+          : "bg-transparent"
+          }`}
       >
         <div className="container">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3 group">
-              <div className="text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+            <a href="/" className="flex items-center group">
+              <img src="/logo.svg" alt="Logo" className="w-20 h-20" />
+              <span className="text-xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
                 MetroTow
-              </div>
-              <div className="hidden sm:block text-xs font-bold text-muted-foreground">
-                24/7 Service
-              </div>
+              </span>
             </a>
 
             {/* Desktop Navigation */}

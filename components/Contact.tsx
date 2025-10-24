@@ -208,8 +208,8 @@ export const Contact = () => {
                   </div>
                   <div>
                     <div className="font-bold text-sm text-muted-foreground mb-1">Email Us</div>
-                    <a href="mailto:help@metrotow.com" className="text-xl font-bold text-foreground hover:text-secondary transition-colors">
-                      help@metrotow.com
+                    <a href="mailto:service@metrotowingautocare.com" className="text-xl font-bold text-foreground hover:text-secondary transition-colors">
+                      service@metrotowingautocare.com
                     </a>
                   </div>
                 </div>

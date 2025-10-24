@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 import { ChatProvider } from '../components/chatProvider';
 import { StructuredData } from '../components/structuredData';
@@ -33,12 +32,12 @@ export const metadata: Metadata = {
     'affordable towing rates',
     'professional towing service'
   ],
-  authors: [{ name: 'MetroTow', url: 'https://metrotow.com' }],
+  authors: [{ name: 'MetroTow', url: 'https://metrotowingautocare.com/' }],
   creator: 'MetroTow Auto Care & Towing',
   publisher: 'MetroTow Auto Care & Towing',
-  metadataBase: new URL('https://metrotow.com'),
+  metadataBase: new URL('https://metrotowingautocare.com/'),
   alternates: {
-    canonical: 'https://metrotow.com',
+    canonical: 'https://metrotowingautocare.com/',
   },
   formatDetection: {
     email: true,
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '24/7 Emergency Towing Service North Omaha | MetroTow',
     description: 'Fast, reliable 24/7 towing service in North Omaha. 30-45 min response time, bilingual support, transparent pricing. Emergency roadside assistance available now!',
-    url: 'https://metrotow.com',
+    url: 'https://metrotowingautocare.com/',
     siteName: 'MetroTow - North Omaha Towing Service',
     images: [
       {
@@ -58,7 +57,7 @@ export const metadata: Metadata = {
         alt: 'MetroTow professional tow truck providing emergency towing service in North Omaha, Nebraska',
       },
       {
-        url: '/metrotow-logo.png',
+        url: '/logo.svg',
         width: 800,
         height: 600,
         alt: 'MetroTow - 24/7 Emergency Towing and Auto Care Service',
@@ -114,9 +113,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.png" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        {/* <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#dc2626" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -131,12 +130,9 @@ export default function RootLayout({
         <StructuredData />
         <ChatProvider>
           <div className="flex flex-col min-h-screen">
-            {/* <PromoBanner /> */}
-            <Header />
             <main className="flex-grow">
               {children}
             </main>
-            <Footer />
             <LeadMagnet autoOpen={true} />
           </div>
         </ChatProvider>

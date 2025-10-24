@@ -6,8 +6,8 @@ import { Services } from "@/components/Services";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { Reviews } from "@/components/Reviews";
 import { Contact } from "@/components/Contact";
-import { Footer } from "~~/components/footer";
 import { FloatingCTA } from "@/components/FloatingCTA";
+import { Footer } from "@/components/footer";
 
 export default function HomePage() {
   return (
