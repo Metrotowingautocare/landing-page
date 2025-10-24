@@ -9,179 +9,142 @@ interface ContactEmailTemplateProps {
 }
 
 export function ContactEmailTemplate({ name, email, phone, subject, message }: ContactEmailTemplateProps) {
+  const fontFamily = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif";
+
   return (
-    <html>
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>New Contact Form Submission</title>
-        <style>{`
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #333333;
-            margin: 0;
-            padding: 0;
-            background-color: #f8fafc;
-          }
-          .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-          }
-          .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 30px;
-            text-align: center;
-          }
-          .header h1 {
-            color: #ffffff;
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
-          .header p {
-            color: #e2e8f0;
-            margin: 8px 0 0 0;
-            font-size: 16px;
-          }
-          .content {
-            padding: 40px 30px;
-          }
-          .info-section {
-            background-color: #f8fafc;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 30px;
-            border-left: 4px solid #667eea;
-          }
-          .info-row {
-            display: flex;
-            margin-bottom: 16px;
-            align-items: flex-start;
-          }
-          .info-row:last-child {
-            margin-bottom: 0;
-          }
-          .info-label {
-            font-weight: 600;
-            color: #374151;
-            min-width: 80px;
-            margin-right: 16px;
-          }
-          .info-value {
-            color: #6b7280;
-            flex: 1;
-            word-break: break-word;
-          }
-          .message-section {
-            background-color: #ffffff;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 24px;
-          }
-          .message-header {
-            font-size: 18px;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #f3f4f6;
-          }
-          .message-content {
-            color: #4b5563;
-            line-height: 1.7;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-          }
-          .footer {
-            background-color: #f8fafc;
-            padding: 24px 30px;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-          }
-          .footer p {
-            color: #6b7280;
-            margin: 0;
-            font-size: 14px;
-          }
-          .timestamp {
-            color: #9ca3af;
-            font-size: 12px;
-            margin-top: 8px;
-          }
-          @media (max-width: 600px) {
-            .container {
-              margin: 0;
-              border-radius: 0;
-            }
-            .header, .content, .footer {
-              padding-left: 20px;
-              padding-right: 20px;
-            }
-            .info-row {
-              flex-direction: column;
-            }
-            .info-label {
-              margin-bottom: 4px;
-              margin-right: 0;
-            }
-          }
-        `}</style>
       </head>
-      <body>
-        <div className="container">
-          <div className="header">
-            <h1>📧 New Contact Message</h1>
-            <p>Someone has reached out through your website</p>
-          </div>
-          
-          <div className="content">
-            <div className="info-section">
-              <div className="info-row">
-                <span className="info-label">👤 Name:</span>
-                <span className="info-value">{name}</span>
-              </div>
-              <div className="info-row">
-                <span className="info-label">📧 Email:</span>
-                <span className="info-value">
-                  <a href={`mailto:${email}`} style={{ color: '#667eea', textDecoration: 'none' }}>
-                    {email}
-                  </a>
-                </span>
-              </div>
-              {phone && (
-                <div className="info-row">
-                  <span className="info-label">📞 Phone:</span>
-                  <span className="info-value">
-                    <a href={`tel:${phone}`} style={{ color: '#667eea', textDecoration: 'none' }}>
-                      {phone}
-                    </a>
-                  </span>
-                </div>
-              )}
-              <div className="info-row">
-                <span className="info-label">📋 Subject:</span>
-                <span className="info-value">{subject}</span>
-              </div>
-            </div>
+      <body style={{ margin: 0, padding: 0, backgroundColor: '#f8fafc', fontFamily }}>
+        <table
+          role="presentation"
+          style={{ width: '100%', borderCollapse: 'collapse' }}
+          cellPadding="0"
+          cellSpacing="0"
+        >
+          <tbody>
+            <tr>
+              <td align="center" style={{ padding: '20px 0' }}>
+                <table
+                  role="presentation"
+                  style={{
+                    width: '100%',
+                    maxWidth: '600px',
+                    borderCollapse: 'collapse',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                    overflow: 'hidden'
+                  }}
+                  cellPadding="0"
+                  cellSpacing="0"
+                >
+                  <tbody>
+                    {/* Header */}
+                    <tr>
+                      <td style={{ backgroundColor: '#dc2626', padding: '40px 30px', textAlign: 'center' }}>
+                        <h1 style={{ color: '#ffffff', margin: 0, fontSize: '28px', fontWeight: 700 }}>
+                          📧 New Contact Message
+                        </h1>
+                        <p style={{ color: '#fecaca', margin: '8px 0 0 0', fontSize: '16px' }}>
+                          From Metro Towing & Auto Care Website
+                        </p>
+                      </td>
+                    </tr>
 
-            <div className="message-section">
-              <div className="message-header">💬 Message</div>
-              <div className="message-content">{message}</div>
-            </div>
-          </div>
+                    {/* Content */}
+                    <tr>
+                      <td style={{ padding: '40px 30px' }}>
+                        {/* Info Section */}
+                        <table
+                          role="presentation"
+                          style={{
+                            width: '100%',
+                            borderCollapse: 'collapse',
+                            backgroundColor: '#f8fafc',
+                            borderRadius: '8px',
+                            borderLeft: '4px solid #dc2626',
+                            marginBottom: '30px'
+                          }}
+                          cellPadding="0"
+                          cellSpacing="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <td style={{ padding: '24px' }}>
+                                <table role="presentation" style={{ width: '100%', borderCollapse: 'collapse' }} cellPadding="0" cellSpacing="0">
+                                  <tbody>
+                                    {renderInfoRow('👤 Name', name)}
+                                    {renderInfoRow('📧 Email', <a href={`mailto:${email}`} style={{ color: '#dc2626', textDecoration: 'none' }}>{email}</a>)}
+                                    {phone && renderInfoRow('📞 Phone', <a href={`tel:${phone}`} style={{ color: '#dc2626', textDecoration: 'none' }}>{phone}</a>)}
+                                    {renderInfoRow('📋 Subject', subject)}
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
 
-          <div className="footer">
-            <p>This message was sent from your website's contact form.</p>
-            <p className="timestamp">Received on {new Date().toLocaleString()}</p>
-          </div>
-        </div>
+                        {/* Message Section */}
+                        <table
+                          role="presentation"
+                          style={{
+                            width: '100%',
+                            borderCollapse: 'collapse',
+                            border: '1px solid #e5e7eb',
+                            borderRadius: '8px',
+                          }}
+                          cellPadding="0"
+                          cellSpacing="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <td style={{ padding: '24px' }}>
+                                <h2 style={{ fontSize: '18px', fontWeight: 600, color: '#374151', marginTop: 0, marginBottom: '16px', paddingBottom: '8px', borderBottom: '2px solid #f3f4f6' }}>
+                                  💬 Message
+                                </h2>
+                                <p style={{ color: '#4b5563', lineHeight: 1.7, whiteSpace: 'pre-wrap', wordWrap: 'break-word', margin: 0 }}>
+                                  {message}
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                    {/* Footer */}
+                    <tr>
+                      <td style={{ backgroundColor: '#f8fafc', padding: '24px 30px', textAlign: 'center', borderTop: '1px solid #e5e7eb' }}>
+                        <p style={{ color: '#6b7280', margin: 0, fontSize: '14px' }}>
+                          Metro Towing & Auto Care
+                        </p>
+                        <p style={{ color: '#9ca3af', fontSize: '12px', margin: '8px 0 0 0' }}>
+                          Received on {new Date().toLocaleString()}
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </body>
     </html>
+  );
+}
+
+function renderInfoRow(label: string, value: React.ReactNode) {
+  return (
+    <tr>
+      <td style={{ paddingBottom: '16px' }}>
+        <p style={{ fontWeight: 600, color: '#374151', margin: '0 0 4px 0' }}>{label}</p>
+        <p style={{ color: '#6b7280', margin: 0, wordBreak: 'break-word' }}>{value}</p>
+      </td>
+    </tr>
   );
 }
