@@ -4,63 +4,33 @@ import { Star } from "lucide-react";
 
 const reviews = [
   {
-    name: "Maria Rodriguez",
+    name: "Maria G.",
     initial: "M",
     location: "North Omaha",
-    service: "Emergency Towing",
+    service: "Brake Repair",
     rating: 5,
-    text: "Me quedé varada a las 2 AM y llegaron en 35 minutos. El conductor habló español perfectamente y fue muy profesional. Precio justo, sin sorpresas.",
-    highlight: "Best bilingual service in Omaha!",
+    text: "My brakes were making terrible grinding noises. MetroTow diagnosed the problem, replaced the pads and rotors, and had me back on the road the same day. Fair pricing and honest service – highly recommend!",
+    highlight: "Same day brake repair!",
     date: "2 weeks ago",
   },
   {
-    name: "James Wilson",
-    initial: "J",
+    name: "Carlos R.",
+    initial: "C",
     location: "Florence",
-    service: "Battery Jump",
+    service: "Engine Diagnostics",
     rating: 5,
-    text: "Dead battery in a parking lot. Called MetroTow and they arrived in 28 minutes! Got me running fast and the price was exactly what they quoted on the phone.",
-    highlight: "Fastest response I've ever seen",
+    text: "Check engine light came on and I was worried. Their diagnostic equipment found the issue quickly – a bad O2 sensor. Fixed it in under an hour. Great communication in Spanish too!",
+    highlight: "Quick and accurate diagnosis",
     date: "1 month ago",
   },
   {
-    name: "Carlos Hernandez",
-    initial: "C",
-    location: "North Omaha",
-    service: "Lockout Service",
-    rating: 5,
-    text: "Locked my keys in the car with the engine running. They talked me through it in Spanish, arrived quickly, and got me in without any damage. Very impressed!",
-    highlight: "Professional and caring",
-    date: "3 weeks ago",
-  },
-  {
-    name: "Sarah Thompson",
-    initial: "S",
-    location: "Benson",
-    service: "Tire Change",
-    rating: 5,
-    text: "Flat tire in the rain. MetroTow came out fast, changed it quickly, and even checked my other tires. Fair pricing and super friendly. Will definitely use again!",
-    highlight: "Went above and beyond",
-    date: "1 week ago",
-  },
-  {
-    name: "Miguel Santos",
-    initial: "M",
-    location: "North Omaha",
-    service: "Winch-Out",
-    rating: 5,
-    text: "Stuck in a ditch after ice storm. They pulled me out carefully and checked for damage. Bilingual service made everything easier for my family. Gracias!",
-    highlight: "Saved the day!",
-    date: "2 months ago",
-  },
-  {
-    name: "Jennifer Lee",
+    name: "Jennifer T.",
     initial: "J",
-    location: "Downtown Omaha",
+    location: "Benson",
     service: "Emergency Towing",
     rating: 5,
-    text: "Car broke down on way to work. MetroTow arrived in 40 minutes, towed to my mechanic, and the price was lower than other quotes. Highly recommend!",
-    highlight: "Transparent pricing, no surprises",
+    text: "Had a flat tire on the interstate at night. They towed my car to their shop and fixed the tire first thing in the morning. Professional and reliable service!",
+    highlight: "Towed to their shop for repair",
     date: "3 weeks ago",
   },
 ];
@@ -82,7 +52,7 @@ export const Reviews = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground font-medium">
-            See why North Omaha trusts MetroTow for emergency towing and roadside assistance.
+            See why North Omaha trusts MetroTow Auto Care for reliable auto repair and emergency services.
           </p>
         </div>
 

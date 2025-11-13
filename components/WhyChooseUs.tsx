@@ -1,71 +1,71 @@
 import { Card } from "@/components/ui/card";
-import { Languages, Clock, DollarSign, MapPin, Shield, Headphones } from "lucide-react";
+import { Languages, Clock, DollarSign, MapPin, Shield, Headphones, Award, Wrench } from "lucide-react";
 
 const advantages = [
   {
-    icon: Languages,
-    title: "Truly Bilingual Service",
-    titleSpanish: "Servicio Bilingüe Verdadero",
-    description: "Not just translation - our team is fluent in English and Spanish, ensuring clear communication during stressful situations.",
+    icon: Award,
+    title: "Certified Technicians",
+    titleSpanish: "Técnicos Certificados",
+    description: "Our ASE-certified mechanics have 15+ years of experience servicing all makes and models. We diagnose accurately and repair it right the first time.",
     features: [
-      "Native Spanish speakers on staff",
-      "Bilingual dispatchers 24/7",
-      "Paperwork in both languages",
-    ],
-  },
-  {
-    icon: Clock,
-    title: "Lightning-Fast Response",
-    titleSpanish: "Respuesta Ultrarrápida",
-    description: "We guarantee 30-45 minute arrival times. When you're stranded, every minute counts.",
-    features: [
-      "GPS-tracked fleet",
-      "Strategic Omaha positioning",
-      "Real-time ETA updates",
+      "ASE-certified mechanics",
+      "15+ years experience",
+      "All makes and models",
     ],
   },
   {
     icon: DollarSign,
-    title: "100% Transparent Pricing",
-    titleSpanish: "Precios 100% Transparentes",
-    description: "You'll know the exact cost before we arrive - no hidden fees, no surprise charges, ever.",
+    title: "Transparent Pricing",
+    titleSpanish: "Precios Transparentes",
+    description: "Upfront estimates with no hidden fees. You'll know the cost before we start any repair work. We explain everything in English or Spanish.",
     features: [
-      "Upfront price quotes",
-      "No mileage surprises",
-      "Clear itemized invoices",
+      "Upfront estimates",
+      "No hidden fees",
+      "Bilingual explanations",
+    ],
+  },
+  {
+    icon: Clock,
+    title: "Fast Turnaround",
+    titleSpanish: "Entrega Rápida",
+    description: "Most repairs completed same-day or next-day. Need your car towed in? We respond within 30-45 minutes and start repairs immediately.",
+    features: [
+      "Same-day repairs",
+      "30-45 min towing response",
+      "Immediate service start",
+    ],
+  },
+  {
+    icon: Shield,
+    title: "Warranty on Repairs",
+    titleSpanish: "Garantía en Reparaciones",
+    description: "We stand behind our work with a comprehensive parts and labor warranty. Your satisfaction and safety are our priority.",
+    features: [
+      "Parts & labor warranty",
+      "Satisfaction guaranteed",
+      "Safety priority",
+    ],
+  },
+  {
+    icon: Languages,
+    title: "Bilingual Auto Care",
+    titleSpanish: "Cuidado Automotriz Bilingüe",
+    description: "Complete automotive services in English and Spanish. Our bilingual technicians ensure clear communication about your vehicle's needs.",
+    features: [
+      "Bilingual technicians",
+      "Clear communication",
+      "Complete explanations",
     ],
   },
   {
     icon: MapPin,
     title: "North Omaha Specialists",
     titleSpanish: "Especialistas de North Omaha",
-    description: "We're local, we know the neighborhoods, and we're committed to serving our community.",
+    description: "We're local, we know the community, and we're committed to keeping North Omaha vehicles running safely and reliably.",
     features: [
-      "Born and raised in Omaha",
-      "Know every street & shortcut",
-      "Community-first approach",
-    ],
-  },
-  {
-    icon: Shield,
-    title: "Fully Licensed & Insured",
-    titleSpanish: "Totalmente Licenciado y Asegurado",
-    description: "Your vehicle is protected with comprehensive insurance and our damage-free guarantee.",
-    features: [
-      "Full liability coverage",
-      "Certified tow operators",
-      "Equipment inspected daily",
-    ],
-  },
-  {
-    icon: Headphones,
-    title: "24/7 Customer Support",
-    titleSpanish: "Soporte al Cliente 24/7",
-    description: "Real people answering calls around the clock - no robots, no voicemail, just help.",
-    features: [
-      "Live agents 24/7",
-      "Multiple contact methods",
-      "Follow-up after service",
+      "Local community focus",
+      "Neighborhood specialists",
+      "Reliable service",
     ],
   },
 ];
@@ -77,14 +77,14 @@ export const WhyChooseUs = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-            Why North Omaha
+            Why Choose
             <br />
             <span className="bg-gradient-to-r from-secondary via-warning to-secondary bg-clip-text text-transparent">
-              Trusts MetroTow
+              MetroTow Auto Care?
             </span>
           </h2>
           <p className="text-xl text-muted-foreground font-medium">
-            We're not just another towing company - we're your neighbors, committed to fast, honest, bilingual service.
+            We're not just another auto repair shop - we're your neighbors, committed to quality repairs, honest service, and bilingual support.
           </p>
         </div>
 
@@ -134,8 +134,8 @@ export const WhyChooseUs = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-warning text-white px-8 py-4 rounded-full font-black text-lg shadow-lg animate-pulse-glow">
-            <span className="text-2xl">🚀</span>
-            <span>Average Response Time: 37 Minutes</span>
+            <span className="text-2xl">🔧</span>
+            <span>Most Repairs Completed Same Day</span>
           </div>
         </div>
       </div>

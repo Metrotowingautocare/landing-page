@@ -28,36 +28,36 @@ export const Hero = () => {
               North Omaha's
               <br />
               <span className="bg-gradient-to-r from-secondary via-warning to-secondary bg-clip-text text-transparent animate-pulse-glow">
-                Fastest
+                Trusted
               </span>
               <br />
-              Towing Service
+              Auto Repair & Maintenance Shop
             </h1>
             
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-lg">
-              Bilingual emergency towing & roadside assistance. We arrive in 30-45 minutes with transparent pricing.
+              Expert auto repair for all makes and models. From brake service to engine diagnostics, our certified bilingual technicians get you back on the road. 24/7 towing available to bring your vehicle to our shop.
             </p>
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                onClick={() => window.location.href = 'tel:+14022140800'}
-                className="text-lg px-8 py-7 bg-gradient-to-r from-emergency to-emergency/90 hover:from-emergency/90 hover:to-emergency shadow-emergency hover:shadow-emergency hover:scale-105 transition-all duration-300 font-bold"
+                onClick={openChat}
+                className="text-lg px-8 py-7 bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-secondary shadow-secondary hover:shadow-secondary hover:scale-105 transition-all duration-300 font-bold"
               >
-                <Phone className="w-5 h-5 mr-2" />
-                Call (402) 214-0800
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Schedule Repair
               </Button>
               
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={openChat}
-                className="text-lg px-8 py-7 border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-bold transition-all duration-300 hover:scale-105"
+                onClick={() => window.location.href = 'tel:+14022140800'}
+                className="text-lg px-8 py-7 border-2 border-emergency text-emergency hover:bg-emergency hover:text-emergency-foreground font-bold transition-all duration-300 hover:scale-105"
               >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Chat Now • Chatea Ahora
+                <Phone className="w-5 h-5 mr-2" />
+                Call for Service: (402) 214-0800
               </Button>
             </div>
             
@@ -88,7 +88,7 @@ export const Hero = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-lg border-4 border-secondary/30">
               <img 
                 src="/hero-tow-truck.jpg"
-                alt="MetroTow professional tow truck ready for emergency service in North Omaha"
+                alt="Certified mechanic working on vehicle repair at MetroTow Auto Care shop in North Omaha"
                 className="w-full h-[500px] lg:h-[600px] object-cover"
               />
               

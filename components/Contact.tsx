@@ -151,14 +151,14 @@ export const Contact = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-                Need Help
+                Schedule Your Repair
                 <br />
                 <span className="bg-gradient-to-r from-secondary to-warning bg-clip-text text-transparent">
-                  Right Now?
+                  or Request Towing
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground font-medium">
-                We're available 24/7 for emergencies. Call, text, or chat with us in English or Spanish.
+                Need auto repair or maintenance? Call us at (402) 214-0800 or fill out the form below to schedule service. For emergency towing, call our 24/7 hotline and we'll bring your vehicle directly to our shop.
               </p>
             </div>
 
@@ -323,7 +323,7 @@ export const Contact = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="e.g., Emergency Towing, Battery Jump, General Inquiry" 
+                    placeholder="e.g., Brake Repair, Engine Diagnostics, Oil Change, Tire Service, Emergency Towing" 
                     className={`border-2 focus:border-secondary ${
                       errors.subject ? 'border-destructive focus:border-destructive' : ''
                     }`}
@@ -341,7 +341,7 @@ export const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Tell us about your situation, location, and what help you need..."
+                    placeholder="Tell us about your vehicle's symptoms, repair needs, or emergency situation..."
                     rows={5}
                     className={`border-2 focus:border-secondary resize-none ${
                       errors.message ? 'border-destructive focus:border-destructive' : ''
@@ -391,7 +391,7 @@ export const Contact = () => {
         isOpen={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
         title="Message Sent Successfully!"
-        message="Thank you for contacting Metro Towing! We'll get back to you within 2 hours."
+        message="Thank you for contacting MetroTow Auto Care! We'll get back to you within 2 hours to schedule your service."
       />
     </section>
   );

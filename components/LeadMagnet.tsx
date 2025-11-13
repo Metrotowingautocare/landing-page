@@ -34,7 +34,7 @@ export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
         
         <h3 className="text-xl font-bold mb-4">Need Emergency Towing?</h3>
         <p className="text-gray-600 mb-4">
-          Get fast, reliable towing service in North Omaha. Available 24/7 with transparent pricing.
+         Certified mechanic working on vehicle repair at MetroTow Auto Care shop in North Omaha
         </p>
         
         <div className="flex gap-2">

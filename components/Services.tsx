@@ -1,68 +1,74 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Truck, Wrench, Battery, CircleDollarSign, Wind, KeyRound, Anchor } from "lucide-react";
+import { Truck, Wrench, Battery, CircleDollarSign, Wind, KeyRound, Anchor, Disc, Zap, Droplet, Car } from "lucide-react";
 
 const services = [
   {
-    icon: Truck,
-    title: "Emergency Towing",
-    titleSpanish: "Remolque de Emergencia",
+    icon: Disc,
+    title: "Brake Repair & Service",
+    titleSpanish: "Reparación y Servicio de Frenos",
     priority: "HIGH",
-    description: "Fast, safe vehicle transport anywhere in North Omaha. Light to heavy-duty towing with professional equipment.",
+    description: "Expert brake inspections, pad replacement, and rotor resurfacing. We diagnose squeaks, grinding, and stopping issues to keep you safe on North Omaha roads.",
+    price: "$120",
+    priceLabel: "Starting at",
+    features: ["Brake inspection", "Pad replacement", "Rotor resurfacing"],
+    ctaText: "Schedule Service",
+  },
+  {
+    icon: Zap,
+    title: "Engine Diagnostics & Repair",
+    titleSpanish: "Diagnóstico y Reparación del Motor",
+    priority: "HIGH",
+    description: "Check engine light on? Our state-of-the-art diagnostic equipment identifies performance issues quickly. From sensors to major engine repairs, we've got you covered.",
+    price: "$95",
+    priceLabel: "Starting at",
+    features: ["Computer diagnostics", "Engine repairs", "Performance tuning"],
+    ctaText: "Get Diagnostics",
+  },
+  {
+    icon: Droplet,
+    title: "Oil Changes & Maintenance",
+    titleSpanish: "Cambios de Aceite y Mantenimiento",
+    priority: "MEDIUM",
+    description: "Regular maintenance keeps your engine running smoothly. Quick oil changes, filter replacements, and multi-point inspections for all makes and models.",
+    price: "$35",
+    priceLabel: "Starting at",
+    features: ["Quick service", "All oil types", "Multi-point inspection"],
+    ctaText: "Book Now",
+  },
+  {
+    icon: Car,
+    title: "Tire & Wheel Service",
+    titleSpanish: "Servicio de Llantas y Ruedas",
+    priority: "MEDIUM",
+    description: "Flat repair, rotation, balancing, and new tire installation. We help you get maximum life from your tires and maintain safe traction.",
+    price: "$25",
+    priceLabel: "Starting at",
+    features: ["Tire repair", "Rotation & balancing", "New tire installation"],
+    ctaText: "Schedule Service",
+  },
+  {
+    icon: Truck,
+    title: "24/7 Emergency Towing",
+    titleSpanish: "Remolque de Emergencia 24/7",
+    priority: "HIGH",
+    description: "Vehicle won't start or been in an accident? We'll safely tow your car directly to our repair shop for immediate diagnostic and repair service. Fast 30-45 minute response.",
     price: "$75",
     priceLabel: "Starting at",
-    features: ["30-45 min arrival", "All vehicle types", "Damage-free guarantee"],
+    features: ["30-45 min arrival", "To our repair shop", "Damage-free guarantee"],
+    ctaText: "Call for Towing",
   },
   {
     icon: Wrench,
     title: "Roadside Assistance",
     titleSpanish: "Asistencia en Carretera",
     priority: "MEDIUM",
-    description: "Get back on the road quickly with on-site repairs, tire changes, and emergency support.",
+    description: "Battery jump starts, tire changes, and lockout service. If we can't fix it on-site, we'll tow you to our shop for complete repair service.",
     price: "$50",
     priceLabel: "Starting at",
-    features: ["On-site repairs", "Flat tire service", "Quick response"],
-  },
-  {
-    icon: Battery,
-    title: "Battery Jump Start",
-    titleSpanish: "Arranque de Batería",
-    priority: "HIGH",
-    description: "Dead battery? We'll get you running in minutes with professional jump-start service.",
-    price: "$45",
-    priceLabel: "Flat rate",
-    features: ["Battery testing", "15 min service", "All vehicle types"],
-  },
-  {
-    icon: CircleDollarSign,
-    title: "Fuel Delivery",
-    titleSpanish: "Entrega de Combustible",
-    priority: "STANDARD",
-    description: "Ran out of gas? We'll deliver fuel directly to your location fast.",
-    price: "$40",
-    priceLabel: "+ fuel cost",
-    features: ["Quick delivery", "All fuel types", "No extra fees"],
-  },
-  {
-    icon: KeyRound,
-    title: "Lockout Service",
-    titleSpanish: "Servicio de Desbloqueo",
-    priority: "MEDIUM",
-    description: "Locked out of your car? Our experts will get you back in without damage.",
-    price: "$55",
-    priceLabel: "Starting at",
-    features: ["No damage entry", "All car models", "Fast arrival"],
-  },
-  {
-    icon: Anchor,
-    title: "Winch-Out Recovery",
-    titleSpanish: "Rescate con Cabrestante",
-    priority: "HIGH",
-    description: "Stuck in mud, snow, or ditch? Professional winch-out and recovery service.",
-    price: "$100",
-    priceLabel: "Starting at",
-    features: ["Heavy-duty winch", "Safe recovery", "Terrain experts"],
+    features: ["On-site repairs", "Jump starts", "Tow to our shop"],
+    ctaText: "Get Help Now",
   },
 ];
 
@@ -82,9 +88,9 @@ export const Services = () => {
             Our Services • Nuestros Servicios
           </Badge>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-            Complete Towing &<br />
+            Complete Auto Repair &<br />
             <span className="bg-gradient-to-r from-secondary to-warning bg-clip-text text-transparent">
-              Auto Care Solutions
+              Maintenance Services
             </span>
           </h2>
           <p className="text-xl text-muted-foreground font-medium">
@@ -146,7 +152,7 @@ export const Services = () => {
                   onClick={() => window.location.href = 'tel:+14022140800'}
                   className="w-full font-bold bg-primary hover:bg-primary-light transition-all duration-300 hover:shadow-md"
                 >
-                  Call Now
+                  {service.ctaText}
                 </Button>
               </div>
             </Card>
