@@ -80,26 +80,26 @@ const priorityColors = {
 
 export const Services = () => {
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20">
+    <section id="services" className="py-16 sm:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20">
       <div className="container">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <Badge variant="outline" className="text-base font-bold border-2 border-secondary text-secondary px-4 py-2">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4 px-2 sm:px-4">
+          <Badge variant="outline" className="text-sm sm:text-base font-bold border-2 border-secondary text-secondary px-3 sm:px-4 py-1 sm:py-2">
             Our Services • Nuestros Servicios
           </Badge>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight">
             Complete Auto Repair &<br />
             <span className="bg-gradient-to-r from-secondary to-warning bg-clip-text text-transparent">
               Maintenance Services
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium">
             Transparent pricing. No hidden fees. Bilingual service guaranteed.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2 sm:px-0">
           {services.map((service, index) => (
             <Card 
               key={index}
@@ -108,49 +108,49 @@ export const Services = () => {
               {/* Top accent line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               
-              <div className="p-8 space-y-6">
+              <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6">
                 {/* Header */}
                 <div className="flex items-start justify-between">
-                  <div className="p-4 bg-gradient-to-br from-primary to-primary-light rounded-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-white" />
+                  <div className="p-3 sm:p-4 bg-gradient-to-br from-primary to-primary-light rounded-xl sm:rounded-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <Badge className={`${priorityColors[service.priority as keyof typeof priorityColors]} font-bold text-xs px-3 py-1`}>
+                  <Badge className={`${priorityColors[service.priority as keyof typeof priorityColors]} font-bold text-xs px-2 sm:px-3 py-1`}>
                     {service.priority}
                   </Badge>
                 </div>
 
                 {/* Title */}
                 <div>
-                  <h3 className="text-2xl font-black text-foreground mb-1">{service.title}</h3>
-                  <p className="text-sm font-semibold text-muted-foreground">{service.titleSpanish}</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-black text-foreground mb-1">{service.title}</h3>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground">{service.titleSpanish}</p>
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {service.features.map((feature, idx) => (
-                    <Badge key={idx} variant="secondary" className="bg-secondary/10 text-foreground border border-secondary/20 hover:bg-secondary/20">
+                    <Badge key={idx} variant="secondary" className="bg-secondary/10 text-foreground border border-secondary/20 hover:bg-secondary/20 text-xs">
                       {feature}
                     </Badge>
                   ))}
                 </div>
 
                 {/* Pricing */}
-                <div className="bg-muted/50 rounded-xl p-4 border-2 border-border">
+                <div className="bg-muted/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border-2 border-border">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-black text-secondary">{service.price}</span>
-                    <span className="text-sm font-semibold text-muted-foreground">{service.priceLabel}</span>
+                    <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-secondary">{service.price}</span>
+                    <span className="text-xs sm:text-sm font-semibold text-muted-foreground">{service.priceLabel}</span>
                   </div>
                 </div>
 
                 {/* CTA */}
                 <Button 
                   onClick={() => window.location.href = 'tel:+14022140800'}
-                  className="w-full font-bold bg-primary hover:bg-primary-light transition-all duration-300 hover:shadow-md"
+                  className="w-full text-sm sm:text-base font-bold bg-primary hover:bg-primary-light transition-all duration-300 hover:shadow-md"
                 >
                   {service.ctaText}
                 </Button>

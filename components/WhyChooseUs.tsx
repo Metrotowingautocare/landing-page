@@ -72,54 +72,54 @@ const advantages = [
 
 export const WhyChooseUs = () => {
   return (
-    <section id="why-us" className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+    <section id="why-us" className="py-16 sm:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4 px-2 sm:px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight">
             Why Choose
             <br />
             <span className="bg-gradient-to-r from-secondary via-warning to-secondary bg-clip-text text-transparent">
               MetroTow Auto Care?
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium">
             We're not just another auto repair shop - we're your neighbors, committed to quality repairs, honest service, and bilingual support.
           </p>
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 px-2 sm:px-0">
           {advantages.map((advantage, index) => (
             <Card 
               key={index}
-              className="group p-8 border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl bg-card/80 backdrop-blur-sm"
+              className="group p-4 sm:p-6 lg:p-8 border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl bg-card/80 backdrop-blur-sm"
             >
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-4 sm:gap-6">
                 {/* Icon */}
-                <div className="flex-shrink-0 p-4 bg-gradient-to-br from-primary to-secondary rounded-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
-                  <advantage.icon className="w-8 h-8 text-white" />
+                <div className="flex-shrink-0 p-3 sm:p-4 bg-gradient-to-br from-primary to-secondary rounded-xl sm:rounded-2xl shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <advantage.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <div className="space-y-4 flex-1">
+                <div className="space-y-3 sm:space-y-4 flex-1">
                   <div>
-                    <h3 className="text-2xl font-black text-foreground mb-1">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-black text-foreground mb-1">
                       {advantage.title}
                     </h3>
-                    <p className="text-sm font-semibold text-muted-foreground">
+                    <p className="text-xs sm:text-sm font-semibold text-muted-foreground">
                       {advantage.titleSpanish}
                     </p>
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {advantage.description}
                   </p>
 
                   {/* Features List */}
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {advantage.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-foreground font-medium">
+                      <li key={idx} className="flex items-center gap-2 text-sm sm:text-base text-foreground font-medium">
                         <div className="w-1.5 h-1.5 rounded-full bg-success flex-shrink-0" />
                         {feature}
                       </li>
@@ -132,9 +132,9 @@ export const WhyChooseUs = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-warning text-white px-8 py-4 rounded-full font-black text-lg shadow-lg animate-pulse-glow">
-            <span className="text-2xl">🔧</span>
+        <div className="mt-12 sm:mt-16 text-center px-2 sm:px-4">
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-secondary to-warning text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full font-black text-sm sm:text-base lg:text-lg shadow-lg animate-pulse-glow">
+            <span className="text-lg sm:text-2xl">🔧</span>
             <span>Most Repairs Completed Same Day</span>
           </div>
         </div>

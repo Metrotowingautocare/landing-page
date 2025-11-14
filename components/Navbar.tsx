@@ -108,40 +108,40 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden bg-background/98 backdrop-blur-lg pt-24 pb-8 px-6 animate-fade-in">
-          <div className="flex flex-col gap-6">
+        <div className="fixed inset-0 z-40 md:hidden bg-background/98 backdrop-blur-lg animate-fade-in">
+          <div className="flex px-6 pb-8 bg-background flex-col gap-4 pt-24">
             <button
               onClick={() => scrollToSection("services")}
-              className="text-2xl font-bold text-foreground hover:text-secondary transition-colors text-left"
+              className="text-md font-bold text-foreground hover:text-secondary transition-colors text-left py-2"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection("why-us")}
-              className="text-2xl font-bold text-foreground hover:text-secondary transition-colors text-left"
+              className="text-md font-bold text-foreground hover:text-secondary transition-colors text-left py-2"
             >
               Why Us
             </button>
             <button
               onClick={() => scrollToSection("reviews")}
-              className="text-2xl font-bold text-foreground hover:text-secondary transition-colors text-left"
+              className="text-md font-bold text-foreground hover:text-secondary transition-colors text-left py-2"
             >
               Reviews
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-2xl font-bold text-foreground hover:text-secondary transition-colors text-left"
+              className="text-md font-bold text-foreground hover:text-secondary transition-colors text-left py-2"
             >
               Contact
             </button>
 
-            <div className="pt-6 border-t-2 border-border">
+            <div className="pt-4 border-t-2 border-border">
               <Button
-                size="lg"
+                size="default"
                 onClick={() => window.location.href = 'tel:+14022140800'}
-                className="w-full text-lg font-bold bg-gradient-to-r from-emergency to-emergency/90 hover:from-emergency/90 hover:to-emergency shadow-emergency"
+                className="w-full text-base font-bold bg-gradient-to-r from-emergency to-emergency/90 hover:from-emergency/90 hover:to-emergency shadow-emergency"
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-4 h-4 mr-2" />
                 Call (402) 214-0800
               </Button>
             </div>
