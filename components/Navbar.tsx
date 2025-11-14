@@ -35,7 +35,9 @@ export const Navbar = () => {
             {/* Logo */}
             <a href="/" className="flex items-center group">
               <img src="/logo.svg" alt="Logo" className="w-20 h-20" />
-              <span className="text-xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+              <span className={`text-xl font-semibold group-hover:scale-105 transition-transform duration-300 ${
+                isScrolled ? "text-foreground" : "text-white"
+              }`}>
                 MetroTow
               </span>
             </a>
@@ -44,25 +46,33 @@ export const Navbar = () => {
             <div className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => scrollToSection("services")}
-                className="font-bold text-foreground hover:text-secondary transition-colors"
+                className={`font-bold hover:text-secondary transition-colors ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection("why-us")}
-                className="font-bold text-foreground hover:text-secondary transition-colors"
+                className={`font-bold hover:text-secondary transition-colors ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}
               >
                 Why Us
               </button>
               <button
                 onClick={() => scrollToSection("reviews")}
-                className="font-bold text-foreground hover:text-secondary transition-colors"
+                className={`font-bold hover:text-secondary transition-colors ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}
               >
                 Reviews
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="font-bold text-foreground hover:text-secondary transition-colors"
+                className={`font-bold hover:text-secondary transition-colors ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}
               >
                 Contact
               </button>
